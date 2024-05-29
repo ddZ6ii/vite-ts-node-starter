@@ -1,0 +1,40 @@
+{
+  "name": "vite-ts-node-starter",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Denis Dezest <denis.dezest@gmail.com>",
+  "repository": "git@github.com:ddZ6ii/vite-ts-node-starter.git",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite-node -w ./src/index.ts",
+    "dev:start": "concurrently \"vite --host --open\" \"vite-node -w ./src/index.ts\"",
+    "build": "yarn run format:lint && npx tsc && vite build",
+    "preview": "concurrently \"cross-env NODE_ENV=production node ./dist/index.es.js\" \"vite preview --host --open\"",
+    "build:preview": "yarn run build && yarn run preview",
+    "format": "prettier --write .",
+    "lint": "eslint --fix .",
+    "format:lint": "yarn run format && yarn run lint",
+    "test": "vitest --pool=forks --typecheck",
+    "tsc:watch": "tsc -w",
+    "start": "cross-env NODE_ENV=production node ./dist/index.es.js"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.12",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "magic-string": "^0.30.10",
+    "path": "^0.12.7",
+    "rollup-plugin-node-externals": "^7.1.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vite-node": "^1.6.0",
+    "vitest": "^1.6.0"
+  }
+}
