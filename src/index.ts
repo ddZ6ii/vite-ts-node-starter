@@ -21,8 +21,8 @@ const _server = app.listen(SERVER_PORT, (): void => {
     chalk.yellow(
       `Server is running on ${
         DEV ? 'http://localhost' : SERVER_HOSTNAME
-      }:${SERVER_PORT.toString()}...`
-    )
+      }:${SERVER_PORT.toString()}...`,
+    ),
   );
 });
 
